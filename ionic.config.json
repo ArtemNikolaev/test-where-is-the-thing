@@ -1,0 +1,7 @@
+{
+  "name": "Where is the thing?",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

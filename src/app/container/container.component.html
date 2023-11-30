@@ -1,0 +1,19 @@
+<ion-card color="secondary">
+  <ion-card-header *ngIf="!showEdit">
+    <ion-card-title>
+      {{data.name}} - {{data.capacity}}/{{data.value}}
+      <ion-icon name="create-outline" (click)="toggleEdit()"></ion-icon>
+      <ion-icon name="trash-bin-outline" (click)="removeItem()"></ion-icon>
+    </ion-card-title>
+    <ion-card-subtitle>
+      {{data.value}}
+    </ion-card-subtitle>
+  </ion-card-header>
+
+  <app-item-form *ngIf="showEdit" [data]="data" (formSubmittedEvent)="toggleEdit()"></app-item-form>
+
+  <ion-card-content>
+    {{ data.description }}
+    <app-list *ngIf="insides.length" [list]="insides"></app-list>
+  </ion-card-content>
+</ion-card>

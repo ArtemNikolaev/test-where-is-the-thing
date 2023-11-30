@@ -1,0 +1,6 @@
+<ion-card>
+    <ng-container *ngFor="let item of list; trackBy: listTrackByFn" [ngSwitch]="item.type">
+      <app-container *ngSwitchCase="'container'" [data]="item"></app-container>
+      <app-thing *ngSwitchCase="'thing'" [data]="item"></app-thing>
+    </ng-container>
+</ion-card>

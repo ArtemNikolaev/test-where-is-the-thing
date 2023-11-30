@@ -1,0 +1,34 @@
+<ion-card color="tetriary">
+
+<ion-list [formGroup]="form">
+  <ion-item>
+    <ion-input label="Name" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Description" formControlName="description"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input label="Value" formControlName="value"></ion-input>
+  </ion-item>
+  <ion-item>
+
+    <ion-select label="Type" formControlName="type">
+      <ion-select-option *ngFor="let type of types" [value]="type">{{ type }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+
+    <ion-select label="Parent" formControlName="parent">
+      <ion-select-option value="No Parent">No Parent</ion-select-option>
+      <ion-select-option *ngFor="let containerId of containersIds" [value]="containerId">{{ containersNames[containerId] }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button expand="full" (click)="calculate()">Do</ion-button>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    [message]="message"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+</ion-list>
+</ion-card>

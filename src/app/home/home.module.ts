@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { MessageComponentModule } from '../message/message.module';
+import {ListComponent} from "../list/list.component";
+import {ThingComponent} from "../thing/thing.component";
+import {ContainerComponent} from "../container/container.component";
+import {ItemFormComponent} from "../item-form/item-form.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MessageComponentModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ReactiveFormsModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, ListComponent, ThingComponent, ContainerComponent, ItemFormComponent]
 })
 export class HomePageModule {}

@@ -1,25 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Inbox
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">
-        Inbox
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-list>
-    <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
-  </ion-list>
+  <ion-accordion-group [multiple]="true" [value]="['containers', 'things']">
+    <ion-accordion value="form">
+      <ion-item slot="header" color="light">
+        <ion-label>Create Entity</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content"><app-item-form></app-item-form></div>
+    </ion-accordion>
+    <ion-accordion value="containers">
+      <ion-item slot="header" color="light">
+        <ion-label>Containers</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content"><app-list [list]="containers"></app-list></div>
+    </ion-accordion>
+    <ion-accordion value="things">
+      <ion-item slot="header" color="light">
+        <ion-label>Things</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content"><app-list [list]="things"></app-list></div>
+    </ion-accordion>
+  </ion-accordion-group>
 </ion-content>

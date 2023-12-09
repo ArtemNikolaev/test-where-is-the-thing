@@ -19,7 +19,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    ServiceWorkerModule.register('api.js'),
+    ServiceWorkerModule.register('api.js', {
+      enabled: true,
+      registrationStrategy: 'registerImmediately'
+    }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

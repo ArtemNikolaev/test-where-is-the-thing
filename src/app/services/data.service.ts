@@ -65,7 +65,7 @@ export class DataService {
     }
 
     const summValue = [...container.insides.values()].reduce((sum: number, entity: any) => sum += Number(entity.value), 0)
-    if (container.value - summValue - Number(entity.value) > 0) {
+    if (container.value - summValue - Number(entity.value) >= 0) {
       this.#setParent(Object.assign({}, entity, {parent: containerId}))
     } else {
       this.update();
@@ -155,7 +155,15 @@ export class DataService {
 
   #getThings() {
     return new Promise((resolve) => {
-      this.#thingsApi.getList().subscribe((result)=> resolve(result));
+      this.#thingsApi.getList()
+        .subscribe(
+          (result)=> resolve(result),
+          /*
+          * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
+          (error: any) => {
+            if (error.status === 404) window.location.reload()
+          }
+        );
     })
   }
 

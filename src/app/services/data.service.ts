@@ -169,7 +169,14 @@ export class DataService {
 
   #getContainers() {
     return new Promise((resolve) => {
-      this.#containerApi.getList().subscribe((result)=> resolve(result));
+      this.#containerApi.getList().subscribe(
+        (result)=> resolve(result),
+        /*
+        * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
+        (error: any) => {
+          if (error.status === 404) window.location.reload()
+        }
+      );
     })
   }
 

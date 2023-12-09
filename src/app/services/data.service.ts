@@ -161,7 +161,7 @@ export class DataService {
           /*
           * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
           (error: any) => {
-            if (error.status === 404) setTimeout(window.location.reload, 2000)
+            if (error.status === 404) setTimeout(() => window.location.reload(), 2000)
           }
         );
     })
@@ -174,7 +174,7 @@ export class DataService {
         /*
         * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
         (error: any) => {
-          if (error.status === 404) setTimeout(window.location.reload, 2000)
+          if (error.status === 404) setTimeout(() => window.location.reload(), 2000)
         }
       );
     })

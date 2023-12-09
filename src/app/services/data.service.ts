@@ -157,12 +157,7 @@ export class DataService {
     return new Promise((resolve) => {
       this.#thingsApi.getList()
         .subscribe(
-          (result)=> resolve(result),
-          /*
-          * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
-          (error: any) => {
-            if (error.status === 404) setTimeout(() => window.location.reload(), 2000)
-          }
+          (result)=> resolve(result)
         );
     })
   }
@@ -170,12 +165,7 @@ export class DataService {
   #getContainers() {
     return new Promise((resolve) => {
       this.#containerApi.getList().subscribe(
-        (result)=> resolve(result),
-        /*
-        * так как бекенда не существует, нужен этот костыль, что бы приложение работало с ходу*/
-        (error: any) => {
-          if (error.status === 404) setTimeout(() => window.location.reload(), 2000)
-        }
+        (result)=> resolve(result)
       );
     })
   }

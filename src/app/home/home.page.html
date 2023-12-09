@@ -1,4 +1,6 @@
 <ion-content [fullscreen]="true">
+  <ion-card>В приложении присутствуют сервис воркеры, которые имитируют бэкенд. Так как настоящего бекенда нет, то
+    после первой самой полной загрузки нужно перезагрузить страницу, что бы загруженный сервис воркер заменил собой бекенд.</ion-card>
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
